@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4 Section Scroll Animations</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <style>
+    .section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .content {
+      position: absolute;
+      text-align: center;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <nav class="fixed top-0 left-0 w-full bg-black bg-opacity-75 z-20">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold">Stranger Things</a>
+      <div>
+        <a href="#section1" class="text-lg mx-2">Home</a>
+        <a href="#section2" class="text-lg mx-2">Gallery</a>
+        <a href="#section3" class="text-lg mx-2">About</a>
+        <a href="#section4" class="text-lg mx-2">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+ 
+  <div id="section1" class="section">
+    <img class="h-full w-full object-cover" src="https://images.hdqwalls.com/wallpapers/stranger-things-season-2-2017-poster-72.jpg" alt="">
+    <div class="content">
+      <h1 class="text-4xl mb-4">Welcome to the Upside Down</h1>
+      <p class="mb-4">Explore the world of Stranger Things</p>
+      <a href="#section2" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Learn More</a>
+    </div>
+  </div>
+
+  <div id="section2" class="section">
+    <img class="h-full w-full object-cover" src="https://wallpapercave.com/wp/wp4428348.jpg" alt="">
+    <div class="content">
+      <h1 class="text-4xl mb-4">Gallery</h1>
+      <p class="mb-4">Check out the amazing scenes from the show</p>
+      <a href="#section3" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">View Gallery</a>
+    </div>
+  </div>
+
+  <div id="section3" class="section">
+    <img class="h-full w-full object-cover" src="https://images.hdqwalls.com/wallpapers/stranger-things-eleven-4k-artwork-new-oo.jpg" alt="">
+    <div class="content">
+      <h1 class="text-4xl mb-4">About the Show</h1>
+      <p class="mb-4">Discover the story behind Stranger Things</p>
+      <a href="#section4" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">Read More</a>
+    </div>
+  </div>
+
+  <div id="section4" class="section">
+    <img class="h-full w-full object-cover" src="https://wallpapercave.com/wp/wp5522111.jpg" alt="">
+    <div class="content">
+      <h1 class="text-4xl mb-4">Contact Us</h1>
+      <p class="mb-4">Get in touch with the creators</p>
+      <a href="mailto:contact@strangerthings.com" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700">Contact</a>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+  <script>
+ 
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    gsap.from("#section1 img, #section1 .content", {
+      opacity: 0,
+      y: -100,
+      duration: 1.5,
+      stagger: 0.5,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#section1",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none play none"
+      }
+    });
+
+ 
+    gsap.from("#section2 img, #section2 .content", {
+      opacity: 0,
+      x: -100,
+      duration: 1.5,
+      stagger: 0.5,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#section2",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none none"
+      }
+    });
+
+
+    gsap.from("#section3 img, #section3 .content", {
+      opacity: 0,
+      scale: 0.5,
+      duration: 1.5,
+      stagger: 0.5,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#section3",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none none"
+      }
+    });
+
+ 
+    gsap.from("#section4 img, #section4 .content", {
+      opacity: 0,
+      rotation: 180,
+      duration: 1.5,
+      stagger: 0.3,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#section4",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none none"
+      }
+    });
+  </script>
+</body>
+</html>
